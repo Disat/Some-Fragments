@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConfusingCode</title>
+</head>
+
+<body>
+    <header>
+        <h1>Code that produces strang outputs</h1>
+    </header>
+    <main>
+        <section>
+            <h1>this code will print two objects which is pending promise another is resolved,my question is why print
+                pending promise object?</h1>
+            <pre>
+            async function fetchData(){
+                let response = await fetch('https://api.apiopen.top/getJoke?page=1&count=2&type=video');
+                let result =  response.json();
+                let status =  response.status;
+                let wrap = {
+                    result:result,
+                    status:status,
+                }
+                return wrap;
+            }
+            let a = 1;
+            let data = fetchData().then(wrap=>console.log(wrap))
+            console.log(data);
+
+        </pre>
+        </section>
+    </main>
+
+</body>
+
+</html>
